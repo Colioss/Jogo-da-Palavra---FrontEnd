@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+
+
+
+</head>
+
+<body>
+
+
+    <div class="Menu">
+        <header>
+            <h1>Adivinhe a Bandeira 🏳️</h1>
+        </header>
+        <br>
+        <h2>Seu objetivo é escrever o país no qual a bandeira pertence.<br> Você terá 3 tentativas para cada imagem.
+        </h2>
+        as dicas servem para cada imagem (ex: dica 1 para imagem 1)
+        <br>
+        <br>
+
+        <h3>
+            <div id=Dicas>
+
+
+
+            </div>
+        </h3>
+        <button onClick="start()" class="Jogar">Clique Aqui Para Começar</button>
+
+    </div>
+
+    <script>
+        const palavras = ["Bélgica", "Albânia", "Barbados", "Liechtenstein"]
+        const bandeiras = ['<ul>Imagem 1 (Fácil):<li><img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Belgium.svg" width="345px"></li>', 'Imagem 2 (Médio): <li><img src="https://cdn.britannica.com/00/6200-050-2E25CE97/Flag-Albania.jpg" width="350px"></li>', 'Imagem 3 (Difícil):<li><img src="https://cdn.britannica.com/08/5108-050-183F69E4/Flag-Barbados.jpg" width="350px"></li>', 'Imagem 4 (Impossível): <li> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Flag_of_Liechtenstein.svg/330px-Flag_of_Liechtenstein.svg.png" width="350px">    </li></ul>']
+
+
+        const dicas = ["Dica 1: Conhecido pela sua milagrosa geração no futebol em 2018", "Dica 2: Localizado na Europa, mais especificamente na península dos Bálcãs", "Dica 3: É uma ilha do Caribe Oriental e uma nação independente da British Commonwealth", "Dica 4: É um pequeno principado soberano situado entre a Suíça e a Áustria, conhecido como um dos países com melhor qualidade de vida do mundo."]
+
+        for (x = 0; x < bandeiras.length; x++) {
+            document.getElementById("Dicas").innerHTML += bandeiras[x];
+
+        }
+
+        function start() {
+
+            tentativas = 1
+            let y = 0
+            var acertos = 0
+            while (y < palavras.length) {
+                while (tentativas <= 3) {
+                    var responder = prompt(dicas[y])
+                    
+
+                    if (responder == palavras[y]) {
+                        acertos++
+                        alert("Você acertou!! o país era: " + palavras[y] + "\nAcertos até agora: " + acertos)
+                        
+                       
+                       
+                        break;
+                        
+
+                    }
+                    
+                    else {
+                        alert("Você errou!!, você tem " + [-tentativas + 3] + " tentativas restantes\nAcertos até agora: " + acertos)
+                        tentativas++
+
+                    }
+                    
+                    
+                }
+                tentativas = 1
+                y++
+
+              
+            }
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
